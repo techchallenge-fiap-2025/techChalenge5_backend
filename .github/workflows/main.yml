@@ -1,0 +1,38 @@
+name: 🚀 Build and Push Docker Image
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        env:
+            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+        steps:
+            - name: 📥 Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: 🔐 Docker Login
+              run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+
+            - name: 🛠️ Build Docker Image
+              run: |
+                  docker build -t $DOCKER_USERNAME/techchalleng5:latest \
+                  --build-arg PORT=3000 \
+                  --build-arg MONGO_URI="${{ secrets.MONGO_URI }}" \
+                  --build-arg JWT_SECRET="${{ secrets.JWT_SECRET }}" \
+                  --build-arg CLOUDINARY_CLOUD_NAME="${{ secrets.CLOUDINARY_CLOUD_NAME }}" \
+                  --build-arg CLOUDINARY_API_KEY="${{ secrets.CLOUDINARY_API_KEY }}" \
+                  --build-arg CLOUDINARY_API_SECRET="${{ secrets.CLOUDINARY_API_SECRET }}" \
+                  .
+
+            - name: 📤 Push Docker Image
+              run: docker push $DOCKER_USERNAME/techchalleng5:latest
+
+            - name: 🚀 Trigger Deploy (Render / Webhook)
+              run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
