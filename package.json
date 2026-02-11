@@ -1,0 +1,42 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "seed:admin": "node src/seeds/createAdmin.seed.js",
+    "seed:materias": "node src/seeds/createMaterias.seed.js",
+    "seed:turmas": "node src/seeds/createTurmas.seed.js",
+    "seed:professores": "node src/seeds/createProfessores.seed.js",
+    "seed:alunos": "node src/seeds/createAlunos.seed.js",
+    "seed:responsaveis": "node src/seeds/createResponsaveis.seed.js",
+    "seed:aulas": "node src/seeds/createAulasSemanais.seed.js",
+    "seed:cursos": "node src/seeds/createCursos.seed.js",
+    "seed:atividades": "node src/seeds/createProvas.seed.js",
+    "seed:atividades-teste": "node src/seeds/createAtividadesTeste.seed.js",
+    "seed:attendances": "node src/seeds/createAttendances.seed.js",
+    "seed:grades": "node src/seeds/createGrades.seed.js",
+    "seed:progresso": "node src/seeds/createProgressoCursos.seed.js",
+    "seed:all": "node src/seeds/createAdmin.seed.js && node src/seeds/createMaterias.seed.js && node src/seeds/createTurmas.seed.js && node src/seeds/createProfessores.seed.js && node src/seeds/createAlunos.seed.js && node src/seeds/createResponsaveis.seed.js && node src/seeds/createAulasSemanais.seed.js && node src/seeds/createCursos.seed.js && node src/seeds/createProvas.seed.js && node src/seeds/createAttendances.seed.js && node src/seeds/createGrades.seed.js && node src/seeds/createProgressoCursos.seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^1.41.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.2",
+    "multer": "^2.0.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "pdfkit": "^0.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
