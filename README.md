@@ -72,7 +72,7 @@ docker run -p 3000:3000 --env-file .env backend-app
 ### Passo 3: Populando o banco (Seeds)
 Este projeto inclui scripts para criar dados iniciais (professores, alunos, turmas). Para rodar todos:
 ```bash
-bashnpm run seed:all
+npm run seed:all
 ```
 
 ## Estrutura de seeds disponíveis
