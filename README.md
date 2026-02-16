@@ -38,7 +38,6 @@ Com base na estrutura de dados e nos scripts de automação do projeto, a plataf
 * **Framework:** Express
 * **Banco de Dados:** MongoDB (via Mongoose)
 * **Armazenamento de Imagens:** Cloudinary
-* **Geração de Documentos:** PDFKit
 * **Segurança:** BCryptJS e JSON Web Token (JWT)
 
 
@@ -96,7 +95,6 @@ Abaixo estão as principais rotas estruturadas para a gestão do sistema. Todas 
 | **Turmas** | `GET` | `/api/turmas` | Exibe as turmas, disciplinas e horários vinculados. |
 | **Atividades** | `GET` | `/api/atividades` | Lista os materiais didáticos e provas disponíveis no banco. |
 | **Atividades** | `POST` | `/api/atividades` | Cria novas atividades (upload via Cloudinary). |
-| **Atividades** | `GET` | `/api/atividades/:id/pdf` | Gera versão para impressão da prova (via PDFKit). |
 | **Frequência** | `POST` | `/api/attendances` | Registra a presença diária dos alunos em sala. |
 | **Notas** | `GET` | `/api/grades` | Consulta o boletim e o progresso acadêmico. |
 
@@ -116,7 +114,7 @@ O desenvolvimento do backend foi focado em criar uma base sólida e escalável p
 
 **Ambiente de Desenvolvimento**: Superar instabilidades técnicas de configuração (como o uso de Docker e WSL2) para garantir que o código fosse executável por qualquer membro da equipe.
 
-**Modelagem de Dados**: Estruturar um banco de dados que refletisse fielmente as complexas relações escolares (Turmas vs. Professores vs. Alunos).
+**Modelagem de Dados**: Estruturar um banco de dados que refletisse fielmente as complexas relações escolares (administração vs. professores vs. alunos).
 
 
 ### Melhorias Futuras (Roadmap)
