@@ -27,6 +27,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/api", (req, res) => res.redirect("/api/health"));
+
 //Rotas
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
